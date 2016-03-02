@@ -1,0 +1,5 @@
+
+[alias]
+	slog = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --decorate
+	sl = log --graph --oneline --pretty
+

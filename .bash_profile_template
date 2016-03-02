@@ -1,0 +1,13 @@
+# Things to put in .bash_profile
+
+# Set the title of an iTerm tab.
+# Usage: title my project.
+function title {
+  # Obscure syntax to set the title of an iTerm tab.
+  # $* means the arguments to title, e.g. 'my project' above.
+  echo -ne "\033]0;"$*"\007"
+}
+
+alias ll='ls -GlAhp'
+alias ls='ls -G'
+
