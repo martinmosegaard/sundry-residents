@@ -1,4 +1,6 @@
-# Things to put in .bash_profile
+export PATH=$PATH:/Users/mam/bin/apache-maven-3.3.9/bin
+export PATH=$PATH:/Users/mam/bin/gradle-2.11/bin
+export P4CONFIG=.p4config
 
 # Set the title of an iTerm tab.
 # Usage: title my project.
@@ -10,4 +12,5 @@ function title {
 
 alias ll='ls -GlAhp'
 alias ls='ls -G'
+alias dm='eval $(docker-machine env default)'
 
