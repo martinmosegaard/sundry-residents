@@ -2,6 +2,26 @@ export PATH=$PATH:/Users/mam/bin/apache-maven-3.3.9/bin
 export PATH=$PATH:/Users/mam/bin/gradle-2.11/bin
 export P4CONFIG=.p4config
 
+# Create the GitHub labels used in the pragmatic workflow.
+# http://www.praqma.com/stories/a-pragmatic-workflow/
+function ghilabels {
+  ghi label "Action - awaiting feed-back" -c 6EB82C
+  ghi label "Action - needs grooming"     -c 009800
+  ghi label "Prio 1 - must have"          -c E83D0F
+  ghi label "Prio 2 - should have"        -c EB6420
+  ghi label "Prio 3 - could have"         -c E8850F
+  ghi label "Prio 4 - won't have"         -c E8A80F
+  ghi label "Size 0 - Briefing"           -c C7DEF8
+  ghi label "Size 1 - small"              -c 20B4E5
+  ghi label "Size 2 - medium"             -c 208FE5
+  ghi label "Size 3 - large"              -c 0052CC
+  ghi label "Size 4 - too big"            -c 100B6B
+  ghi label "Status - duplicate"          -c 111111
+  ghi label "Status - workable"           -c EDEDED
+  ghi label "Status - in progress"        -c EDEDED
+  ghi label "Status - up Next"            -c EEEEEE
+}
+
 # Extract a tar file into its own directory
 # regardless of how it was created.
 function tarx {
@@ -30,4 +50,3 @@ function title {
 alias ll='ls -GlAhp'
 alias ls='ls -G'
 alias dm='eval $(docker-machine env default)'
-
