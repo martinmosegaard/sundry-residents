@@ -5,6 +5,9 @@ export P4CONFIG=.p4config
 # Create the GitHub labels used in the pragmatic workflow.
 # http://www.praqma.com/stories/a-pragmatic-workflow/
 function ghilabels {
+  # First, delete the default labels
+  ghi label -l | sed "s/\'/\\\'/g" | xargs -I %lb sh -c 'ghi label -D "%lb"'
+
   ghi label "Action - awaiting feed-back" -c 6EB82C
   ghi label "Action - needs grooming"     -c 009800
   ghi label "Prio 1 - must have"          -c E83D0F
