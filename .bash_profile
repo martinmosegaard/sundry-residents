@@ -1,6 +1,7 @@
 export PATH=$PATH:/Users/mam/bin/apache-maven-3.3.9/bin
 export PATH=$PATH:/Users/mam/bin/gradle-2.11/bin
 export P4CONFIG=.p4config
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 # Create the GitHub labels used in the pragmatic workflow.
 # http://www.praqma.com/stories/a-pragmatic-workflow/
