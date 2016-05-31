@@ -1,3 +1,4 @@
 include 'exec'
+include 'taskDependsOn'
 
 rootProject.name = 'gradle'
