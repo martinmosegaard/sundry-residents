@@ -1,0 +1,18 @@
+/*
+ * Exec tasks. See:
+ * https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Exec.html
+ */
+
+task execCommandLine(type:Exec) {
+  if (System.getProperty('os.name').toLowerCase().contains('windows')) {
+    commandLine 'cmd', '/c', 'sayHello.bat'
+  } else {
+    commandLine './sayHello.sh'
+  }
+}
+
+task execExecutable(type:Exec) {
+  executable 'ls'
+  args '-al'
+  args 'sayHello.sh'
+}
