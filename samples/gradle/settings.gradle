@@ -1,5 +1,6 @@
 include 'exec'
 include 'jacoco'
+include 'pluginInScript'
 include 'taskDependsOn'
 
 rootProject.name = 'gradle'
