@@ -1,2 +1,6 @@
+# Gradle
+build
 .gradle
+
+# Python
 *.pyc
