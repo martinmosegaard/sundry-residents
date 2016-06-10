@@ -1,4 +1,4 @@
-include 'exec'
+include 'execTask'
 include 'jacoco'
 include 'pluginInScript'
 include 'taskDependsOn'
