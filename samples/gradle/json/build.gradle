@@ -1,0 +1,30 @@
+/*
+ * Using JsonSlurper
+ */
+import groovy.json.JsonSlurper
+
+def jsonText = '''\
+  {
+    "menu": {
+      "id": "file",
+      "menuitem": [
+        { "value": "New",   "onclick": "CreateNewDoc()" },
+        { "value": "Open",  "onclick": "OpenDoc()" },
+        { "value": "Close", "onclick": "CloseDoc()" }
+      ]
+    }
+  }
+  '''.stripIndent()
+
+task slurpThatJson << {
+  def jsonSlurper = new JsonSlurper()
+  def jsonObject = jsonSlurper.parseText(jsonText)
+  def menu = jsonObject.menu
+
+  println "Menu ID: $menu.id"
+  def menuItems = menu.menuitem
+  println "The menu has $menuItems.size items"
+  menuItems.eachWithIndex { item, idx ->
+    println "Item #$idx: $item.value has onclick handler: $item.onclick"
+  }
+}
