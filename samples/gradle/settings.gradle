@@ -1,4 +1,5 @@
 include 'execTask'
+include 'executeProcess'
 include 'jacoco'
 include 'pluginInScript'
 include 'taskDependsOn'
