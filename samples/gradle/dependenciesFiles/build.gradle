@@ -1,0 +1,46 @@
+/*
+ * Depend on files.
+ * https://docs.gradle.org/current/userguide/dependency_management.html#sub:file_dependencies
+ * https://discuss.gradle.org/t/external-dependencies-in-cpp-projects/7135/7
+ */
+
+// Define a configuration to represent the archived libraries
+configurations {
+  myzip
+  mytar
+}
+dependencies {
+  myzip files('libs/archive1.zip')
+  mytar files('libs/archive2.tar.bz2')
+}
+
+// Task to explode the zipped library into a temporary dir
+task extractZip(type: Copy) {
+  ext.libsdir = "${buildDir}/libs/myzip"
+  from { configurations.myzip.collect { zipTree(it) } }
+  into libsdir
+}
+task extractTar(type: Copy) {
+  ext.libsdir = "${buildDir}/libs/mytar"
+  from { configurations.mytar.collect { tarTree(it) } }
+  into libsdir
+}
+
+task printDeps(dependsOn: [extractZip, extractTar]) << {
+  println "Files from zip:"
+  def zipDir = new File("${extractZip.libsdir}")
+  zipDir.eachFile { file ->
+    println "File name: ${file.name}"
+    file.eachLine { line ->
+      println line
+    }
+  }
+
+  println "File from tar:"
+  def tarDir = new File("${extractTar.libsdir}")
+  tarDir.eachFile { file ->
+    println "File name: ${file.name}"
+    // Read the file contents as a single string
+    println file.text
+  }
+}

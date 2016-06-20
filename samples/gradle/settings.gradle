@@ -1,3 +1,4 @@
+include 'dependenciesFiles'
 include 'execTask'
 include 'executeProcess'
 include 'jacoco'
