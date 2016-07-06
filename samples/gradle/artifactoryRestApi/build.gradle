@@ -1,0 +1,44 @@
+// Call Artifactory from Gradle
+import groovy.json.JsonSlurper
+import groovyx.net.http.HTTPBuilder
+import static groovyx.net.http.ContentType.JSON
+import static groovyx.net.http.Method.GET
+
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+	}
+}
+
+def artifactoryGet(String uriPath, Map uriQuery = null, Closure successHandler) {
+	def http = new HTTPBuilder('artifactory-url')
+	http.auth.basic 'user', 'password'
+	http.request(GET, JSON) {
+		uri.path = uriPath
+		uri.query = uriQuery
+		response.success = successHandler
+	}
+}
+
+task getAllBuilds << {
+	artifactoryGet('/artifactory/api/build') { resp, json ->
+		println "Query response:"
+		println json
+	}
+}
+
+task getArtifactsCreatedInDateRange << {
+	def now = new Date()
+	def twoWeeksAgo = now.minus(14)
+	println "Finding artifacts created in range: $twoWeeksAgo - $now"
+	def uriQuery = [ from:  twoWeeksAgo.getTime(),
+									 to:    now.getTime(),
+									 repos: 'libs-release-local',
+								 ]
+	artifactoryGet('/artifactory/api/search/creation', uriQuery) { resp, json ->
+		println json
+	}
+}

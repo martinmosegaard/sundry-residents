@@ -1,3 +1,4 @@
+include 'artifactoryRestApi'
 include 'dependenciesFiles'
 include 'execTask'
 include 'executeProcess'
