@@ -9,8 +9,9 @@ Artifactory.configure do |config|
   config.ssl_verify = false
 end
 
-puts System.info
-puts System.version
+system = System.version
+puts "Version: #{system['version']}"
+puts "License: #{system['license']}"
 
 repos = Repository.all
 puts "Number of repositories: #{repos.length}"
