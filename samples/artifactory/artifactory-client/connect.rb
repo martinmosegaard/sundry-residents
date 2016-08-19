@@ -15,3 +15,4 @@ puts "License: #{system['license']}"
 
 repos = Repository.all
 puts "Number of repositories: #{repos.length}"
+repos.each { |r| puts "#{r.key} - #{r.description}" }
