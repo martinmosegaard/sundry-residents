@@ -10,6 +10,7 @@ Artifactory.configure do |config|
 end
 
 puts System.info
+puts System.version
 
 repos = Repository.all
 puts "Number of repositories: #{repos.length}"
