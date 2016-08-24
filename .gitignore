@@ -4,3 +4,6 @@ build
 
 # Python
 *.pyc
+
+# From the Artifactory samples
+artifactory.lic
