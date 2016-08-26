@@ -1,0 +1,22 @@
+# Artifactory server used when reading values
+source:
+  endpoint: http://localhost:8081/artifactory
+  username: admin
+  # Plain or encoded, e.g.: 'password' or 'base64 cGFzc3dvcmQ='
+  password: base64 cGFzc3dvcmQ=
+
+# Artifactory server used when writing values
+target:
+  endpoint: http://localhost:8082/artifactory
+  username: admin
+  password: password
+
+# Repositories to ignore
+ignore:
+  - ext-release-local
+  - ext-snapshot-local
+  - libs-release-local
+  - libs-snapshot-local
+  - plugins-release-local
+  - plugins-snapshot-local
+  - jcenter
