@@ -1,5 +1,5 @@
 export PATH=$PATH:/Users/mam/bin/apache-maven-3.3.9/bin
-export PATH=$PATH:/Users/mam/bin/gradle-2.11/bin
+export PATH=$PATH:/Users/mam/bin/gradle-3.0/bin
 export P4CONFIG=.p4config
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
