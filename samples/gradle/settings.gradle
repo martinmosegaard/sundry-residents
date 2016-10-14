@@ -4,6 +4,7 @@ include 'execTask'
 include 'executeProcess'
 include 'jacoco'
 include 'json'
+include 'native'
 include 'pluginInScript'
 include 'taskDependsOn'
 

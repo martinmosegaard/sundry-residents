@@ -1,0 +1,17 @@
+plugins {
+  id 'c'
+}
+
+model {
+  binaries {
+    all {
+      if (toolChain in Clang) {
+        cCompiler.args '-Weverything'
+        cCompiler.args '-Werror'
+      }
+    }
+  }
+  components {
+    main(NativeExecutableSpec)
+  }
+}
