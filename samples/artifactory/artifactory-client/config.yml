@@ -7,16 +7,16 @@ source:
 
 # Artifactory server used when writing values
 target:
-  endpoint: http://localhost:8082/artifactory
+  endpoint: http://localhost:8081/artifactory
   username: admin
   password: password
 
 # Repositories to ignore
 ignore:
-  - ext-release-local
+#  - ext-release-local
   - ext-snapshot-local
   - libs-release-local
   - libs-snapshot-local
   - plugins-release-local
   - plugins-snapshot-local
-  - jcenter
+#  - jcenter

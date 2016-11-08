@@ -1,9 +1,9 @@
 # Use Ruby artifactory-client to call REST API
 
-Using https://github.com/chef/artifactory-client
+Using <https://github.com/chef/artifactory-client>
 
 ## Example
 
 ```sh
-$ ruby -Ilib exe/artifactory help
+ruby -Ilib exe/artifactory help
 ```

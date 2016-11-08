@@ -2,7 +2,6 @@
 
 How editing conflicts are handled in Jira and how issue locking can help.
 
-
 ## Problem: Editing conflicts
 
 If two users edit and try to update the same issue at the same time, the last edit wins.
@@ -17,11 +16,13 @@ Then imagine users `Alice` and `Bob` edit the issue at the same time. `Alice` su
 her changes just a moment before `Bob`. Their changes look like this:
 
 `Alice`:
+
 * __Title__: The dog may sometimes catch fire
 * __Description__: Occasionally, we see this problem
 * __Priority__: Minor
 
 `Bob`:
+
 * __Description__: This is really bad! I'm pretty sure Alice knows how to fix it.
 * __Assignee__: Alice
 
@@ -37,17 +38,15 @@ like this:
 None of the users see any kind of warning. The history is visible in the `All` tab, but
 you have to look for it.
 
-
 ## Issue Locking plugin
 
 A workaround is to use a plugin called `Issue Lock for JIRA`, as described here:
-https://jira.atlassian.com/browse/JRA-6146
+<https://jira.atlassian.com/browse/JRA-6146>
 
 This is a commercial plugin and must be enabled per project. It takes an issue edit lock
 per user and shows red/green status bars at the bottom of the window when conflicts occur.
 
-
 ## A manual solution
 
-A manual solution using custom fields is described here: https://lukehalliwell.wordpress.com/2009/09/01/my-love-for-plugins-reaffirmed/
+A manual solution using custom fields is described here: <https://lukehalliwell.wordpress.com/2009/09/01/my-love-for-plugins-reaffirmed/>
 although it does not provide all the details.

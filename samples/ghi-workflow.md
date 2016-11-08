@@ -1,6 +1,6 @@
-= Ghi workflow =
+# Ghi workflow
 
-http://www.praqma.com/stories/a-pragmatic-workflow/
+<http://www.praqma.com/stories/a-pragmatic-workflow/>
 
 ghi open, describe issue
 ghi list, to see the issue number

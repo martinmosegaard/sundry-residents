@@ -1,4 +1,4 @@
-= Plugins =
+# Plugins
 
 User guide chapter 25, Gradle Plugins.
 User guide chapter 39, Writing Custom Plugins.
@@ -9,6 +9,7 @@ plugins.
 Plugins promote reuse and encapsulate logic so build scripts can be declarative.
 
 Two types:
+
 * Script plugin - `apply from 'other.gradle'`
 * Binary plugin - `apply plugin: 'java'`
 

@@ -22,7 +22,7 @@ module Artifactory
 
         repos = Artifactory::Resource::Repository.all
         repos = filter(repos)
-        repos = repos.map { |r| r.rclass == 'remote' ? add_url_for_remote(r) : r }
+        #repos = repos.map { |r| r.rclass == 'remote' ? add_url_for_remote(r) : r }
 
         json = to_json(repos)
         File.open(options[:file], 'w') do |f|
@@ -92,15 +92,25 @@ module Artifactory
       end
 
       def save_remote(hash)
-        json = JSON.generate hash
-        headers = { 'Content-Type' =>
-          'application/vnd.org.jfrog.artifactory.repositories.RemoteRepositoryConfiguration+json' }
-        Artifactory.put("/api/repositories/#{hash['key']}", json, headers)
+        repo = Artifactory::Resource::Repository.new(
+          rclass: hash['rclass'],
+          key: hash['key'],
+          description: hash['description'],
+          package_type: hash['packageType'],
+          repo_layout_ref: hash['layout'],
+          url: hash['url']
+        )
+        repo.save
+#        json = JSON.generate hash
+#        headers = { 'Content-Type' =>
+#          'application/vnd.org.jfrog.artifactory.repositories.RemoteRepositoryConfiguration+json' }
+#        Artifactory.put("/api/repositories/#{hash['key']}", json, headers)
       end
 
       def to_json(repos)
         hash = repos.map do |r|
-          if r.is_a? Artifactory::ClientExtension::RemoteRepository
+          #if r.is_a? Artifactory::ClientExtension::RemoteRepository
+          if r.rclass == 'remote'
             { rclass: r.rclass,
               key: r.key,
               description: r.description,
