@@ -40,3 +40,13 @@ Hostname in command prompt:
 ```sh
 netdom renamecomputer %COMPUTERNAME% /newname thename
 ```
+
+## Cannot rename this connection. A connection with the name you specified already exists. Specify a different name
+
+```sh
+set devmgr_show_nonpresent_devices=1
+devmgmt.msc
+```
+
+- Show hidden devices
+- Uninstall dimmed adapters
