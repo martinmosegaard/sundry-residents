@@ -2,14 +2,14 @@
 
 ## Hostname
 
-```
+```sh
 sudo vim /etc/hostname
 sudo vim /etc/hosts
 ```
 
 ## Static IP
 
-```
+```sh
 sudo vim /etc/network/interfaces
 
 auto eth0
@@ -21,6 +21,6 @@ gateway 10.0.0.1
 
 ## Password of current user
 
-```
+```sh
 passwd
 ```
