@@ -41,6 +41,14 @@ Hostname in command prompt:
 netdom renamecomputer %COMPUTERNAME% /newname thename
 ```
 
+Hostname in command prompt, if using `netdom` does not work (for example Windows XP not in a domain):
+
+```sh
+wmic computersystem where name='%computername%' call rename name='thename'
+```
+
+When using `wmic`, you have to reboot afterwards. It will not prompt you.
+
 ## Cannot rename this connection. A connection with the name you specified already exists. Specify a different name
 
 ```sh
