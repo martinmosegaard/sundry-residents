@@ -3,6 +3,10 @@ export PATH=$PATH:/Users/mam/bin/gradle-3.0/bin
 export P4CONFIG=.p4config
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
+# Working directory, colors and git branch name
+source /usr/local/git/contrib/completion/git-prompt.sh # to define __git_ps1
+export PS1="\[\033[36m\]\w\[\033[33;1m\]\$(__git_ps1)\[\033[m\] \$ "
+
 # Create the GitHub labels used in the pragmatic workflow.
 # http://www.praqma.com/stories/a-pragmatic-workflow/
 function ghilabels {
