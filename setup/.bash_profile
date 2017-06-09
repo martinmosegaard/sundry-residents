@@ -4,6 +4,8 @@ export P4CONFIG=.p4config
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 
 # Working directory, colors and git branch name
+# Prerequisite: brew install git bash-completion
+# See also: https://gist.github.com/trey/2722934
 source /usr/local/git/contrib/completion/git-prompt.sh # to define __git_ps1
 export PS1="\[\033[36m\]\w\[\033[33;1m\]\$(__git_ps1)\[\033[m\] \$ "
 

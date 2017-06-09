@@ -1,0 +1,14 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "guest_os_type": "Linux_64",
+      "iso_url": "/Users/mam/Documents/vm-templates/vmware-esx/VMware-VMvisor-Installer-6.5.0-4564106.x86_64.iso",
+      "iso_checksum": "af7447df72301dd56c9ca3d42f310efc",
+      "iso_checksum_type": "md5",
+      "ssh_username": "vagrant",
+      "ssh_password": "vagrant",
+      "shutdown_command": "echo 'packer' | sudo -S shutdown -P now"
+    }
+  ]
+}
