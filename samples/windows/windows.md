@@ -58,3 +58,9 @@ devmgmt.msc
 
 - Show hidden devices
 - Uninstall dimmed adapters
+
+## Get OS architecture
+
+```sh
+wmic os get osarchitecture
+```
