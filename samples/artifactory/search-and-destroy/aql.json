@@ -1,0 +1,6 @@
+items.find({
+  "repo": "libs-release",
+  "path": { "$match": "com/company/*" },
+  "@branch": { "$eq": "master" }
+})
+
