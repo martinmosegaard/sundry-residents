@@ -9,6 +9,10 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexec
 source /usr/local/git/contrib/completion/git-prompt.sh # to define __git_ps1
 export PS1="\[\033[36m\]\w\[\033[33;1m\]\$(__git_ps1)\[\033[m\] \$ "
 
+# http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
 # Create the GitHub labels used in the pragmatic workflow.
 # http://www.praqma.com/stories/a-pragmatic-workflow/
 function ghilabels {
