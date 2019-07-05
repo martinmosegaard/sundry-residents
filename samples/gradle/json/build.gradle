@@ -16,15 +16,17 @@ def jsonText = '''\
   }
   '''.stripIndent()
 
-task slurpThatJson << {
-  def jsonSlurper = new JsonSlurper()
-  def jsonObject = jsonSlurper.parseText(jsonText)
-  def menu = jsonObject.menu
+task slurpThatJson {
+    doLast {
+      def jsonSlurper = new JsonSlurper()
+      def jsonObject = jsonSlurper.parseText(jsonText)
+      def menu = jsonObject.menu
 
-  println "Menu ID: $menu.id"
-  def menuItems = menu.menuitem
-  println "The menu has $menuItems.size items"
-  menuItems.eachWithIndex { item, idx ->
-    println "Item #$idx: $item.value has onclick handler: $item.onclick"
-  }
+      println "Menu ID: $menu.id"
+      def menuItems = menu.menuitem
+      println "The menu has $menuItems.size items"
+      menuItems.eachWithIndex { item, idx ->
+        println "Item #$idx: $item.value has onclick handler: $item.onclick"
+      }
+    }
 }

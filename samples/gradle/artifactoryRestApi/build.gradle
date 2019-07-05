@@ -24,22 +24,27 @@ def artifactoryGet(String uriPath, Map uriQuery = null, Closure successHandler) 
 	}
 }
 
-task getAllBuilds << {
-	artifactoryGet('/artifactory/api/build') { resp, json ->
-		println "Query response:"
-		println json
+task getAllBuilds {
+	doLast {
+		artifactoryGet('/artifactory/api/build') { resp, json ->
+			println "Query response:"
+			println json
+		}
 	}
 }
 
-task getArtifactsCreatedInDateRange << {
-	def now = new Date()
-	def twoWeeksAgo = now.minus(14)
-	println "Finding artifacts created in range: $twoWeeksAgo - $now"
-	def uriQuery = [ from:  twoWeeksAgo.getTime(),
-									 to:    now.getTime(),
-									 repos: 'libs-release-local',
-								 ]
-	artifactoryGet('/artifactory/api/search/creation', uriQuery) { resp, jsonMap ->
-		println JsonOutput.prettyPrint(JsonOutput.toJson(jsonMap))
+task getArtifactsCreatedInDateRange {
+	doLast {
+		def now = new Date()
+		def twoWeeksAgo = now.minus(14)
+		println "Finding artifacts created in range: $twoWeeksAgo - $now"
+		def uriQuery = [
+			from:  twoWeeksAgo.getTime(),
+			to:    now.getTime(),
+			repos: 'libs-release-local',
+		]
+		artifactoryGet('/artifactory/api/search/creation', uriQuery) { resp, jsonMap ->
+			println JsonOutput.prettyPrint(JsonOutput.toJson(jsonMap))
+		}
 	}
 }

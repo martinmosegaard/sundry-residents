@@ -26,21 +26,23 @@ task extractTar(type: Copy) {
   into libsdir
 }
 
-task printDeps(dependsOn: [extractZip, extractTar]) << {
-  println "Files from zip:"
-  def zipDir = new File("${extractZip.libsdir}")
-  zipDir.eachFile { file ->
-    println "File name: ${file.name}"
-    file.eachLine { line ->
-      println line
-    }
-  }
+task printDeps(dependsOn: [extractZip, extractTar]) {
+  doLast {
+      println "Files from zip:"
+      def zipDir = new File("${extractZip.libsdir}")
+      zipDir.eachFile { file ->
+        println "File name: ${file.name}"
+        file.eachLine { line ->
+          println line
+        }
+      }
 
-  println "File from tar:"
-  def tarDir = new File("${extractTar.libsdir}")
-  tarDir.eachFile { file ->
-    println "File name: ${file.name}"
-    // Read the file contents as a single string
-    println file.text
-  }
+      println "File from tar:"
+      def tarDir = new File("${extractTar.libsdir}")
+      tarDir.eachFile { file ->
+        println "File name: ${file.name}"
+        // Read the file contents as a single string
+        println file.text
+      }
+    }
 }

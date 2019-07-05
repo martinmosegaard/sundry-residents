@@ -3,15 +3,21 @@
  * https://docs.gradle.org/current/userguide/more_about_tasks.html
  /*/
 
-task sayHello << {
-  print 'Hello '
+task sayHello {
+    doLast {
+        print 'Hello '
+    }
 }
 
-task sayHelloWorld << {
-  println 'world!'
+task sayHelloWorld {
+    doLast {
+        println 'world!'
+    }
 }
 sayHelloWorld.dependsOn sayHello
 
-task sayHelloEarth(dependsOn: sayHello) << {
-  println 'earth!'
+task sayHelloEarth(dependsOn: sayHello) {
+    doLast {
+        println 'earth!'        
+    }
 }

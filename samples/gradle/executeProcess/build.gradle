@@ -2,20 +2,22 @@
  * Execute command line process as string.
  */
 
- task runCommand << {
-   def commands = ['ls .', 'cat nofile']
+ task runCommand {
+     doLast {
+       def commands = ['ls .', 'cat nofile']
 
-   commands.each {
-     println "Executing command: $it"
+       commands.each {
+         println "Executing command: $it"
 
-     def standardOut = new ByteArrayOutputStream()
-     def standardErr = new ByteArrayOutputStream()
+         def standardOut = new ByteArrayOutputStream()
+         def standardErr = new ByteArrayOutputStream()
 
-     def process = it.execute()
-     process.consumeProcessOutput(standardOut, standardErr)
-     process.waitFor()
+         def process = it.execute()
+         process.consumeProcessOutput(standardOut, standardErr)
+         process.waitFor()
 
-     println "Process output: $standardOut"
-     println "Process error output: $standardErr"
-   }
- }
+         println "Process output: $standardOut"
+         println "Process error output: $standardErr"
+       }
+    }
+}
