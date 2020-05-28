@@ -36,6 +36,9 @@ function ghilabels {
   ghi label "Status - up Next"            -c EEEEEE
 }
 
+# View a man page in Preview
+function preman() { man -t "$@" | open -f -a "Preview" ;}
+
 # Extract a tar file into its own directory
 # regardless of how it was created.
 function tarx {
