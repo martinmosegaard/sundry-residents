@@ -75,14 +75,14 @@ codes = {
 questions = 30
 score = 0
 
-for i in xrange(questions):
+for i in range(questions):
   code, description = random.choice(list(codes.items()))
   guess = input('[%d/%d] %s : ' % (i, questions, description))
   if guess == code:
-    print 'Yes!'
+    print('Yes!')
     score = score + 1
   else:
-    print 'No. The right answer was: %d' % code
+    print('No. The right answer was: %d' % code)
 
-print 'Score: %d out of %d' % (score, questions)
+print(f'Score: {score} out of {questions}')
 
